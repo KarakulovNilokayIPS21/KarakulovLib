@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarakulovLib", "KarakulovLib\KarakulovLib.csproj", "{371911EF-92E8-42E2-90D0-71AA4CAEA9D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarakulovTests", "KarakulovTests\KarakulovTests.csproj", "{6EAEB67A-CA03-4C13-86A7-AEC38E12B59F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarakulovWpf", "KarakulovWpf\KarakulovWpf.csproj", "{BB2CF16B-0C32-402E-BDAC-7B09A1F7F126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{371911EF-92E8-42E2-90D0-71AA4CAEA9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371911EF-92E8-42E2-90D0-71AA4CAEA9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371911EF-92E8-42E2-90D0-71AA4CAEA9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371911EF-92E8-42E2-90D0-71AA4CAEA9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EAEB67A-CA03-4C13-86A7-AEC38E12B59F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EAEB67A-CA03-4C13-86A7-AEC38E12B59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EAEB67A-CA03-4C13-86A7-AEC38E12B59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EAEB67A-CA03-4C13-86A7-AEC38E12B59F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2CF16B-0C32-402E-BDAC-7B09A1F7F126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2CF16B-0C32-402E-BDAC-7B09A1F7F126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2CF16B-0C32-402E-BDAC-7B09A1F7F126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2CF16B-0C32-402E-BDAC-7B09A1F7F126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,125 @@
+﻿<Window x:Class="KarakulovWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KarakulovWpf"
+        mc:Ignorable="d"
+         Title="KarakulovWpf" Height="600" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать" Name="MenuСreate" Click="MenuCreate_Click"/>
+                <MenuItem Header="Открыть" Name="MenuLoad" Click="MenuLoad_Click"/>
+                <MenuItem Header="Сохранить" Name="MenuSave" Click="MenuSave_Click"/>
+                <MenuItem Header="Сохранить как" Name="MenuSave_2" Click="MenuSave_Click_2"/>
+                <Separator/>
+                <MenuItem Header="Выход" Name="MenuExit" Click="MenuExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Задачи">
+                <MenuItem Header="Добавить задачу" Name="MenuAddTask" Click="MenuAddTask_Click"/>
+                <MenuItem Header="Редактировать задачу" Name="MenuEditTask" Click="MenuEditTask_Click"/>
+                <MenuItem Header="Удалить задачу" Name="MenuDeleteTask" Click="MenuDeleteTask_Click"/>
+            </MenuItem>
+            <MenuItem Header="Фильтры">
+                <MenuItem Header="По статусу">
+                    <MenuItem Header="Все" Name="MenuFilterStatusAll" Click="MenuFilterStatus_Click" IsCheckable="True"/>
+                    <MenuItem Header="Создано" Name="MenuFilterStatusNew" Click="MenuFilterStatus_Click"/>
+                    <MenuItem Header="Выполняется" Name="MenuFilterStatusInProgress" Click="MenuFilterStatus_Click"/>
+                    <MenuItem Header="На паузе" Name="MenuFilterStatusOnHold" Click="MenuFilterStatus_Click"/>
+                    <MenuItem Header="Завершенно" Name="MenuFilterStatusCompleted" Click="MenuFilterStatus_Click"/>
+                    <MenuItem Header="Отмененно" Name="MenuFilterStatusCanceled" Click="MenuFilterStatus_Click"/>
+                </MenuItem>
+                <MenuItem Header="По приоритету">
+                    <MenuItem Header="Все" Name="MenuFilterPriorityAll" Click="MenuFilterPriority_Click"/>
+                    <MenuItem Header="Низкий" Name="MenuFilterPriorityLow" Click="MenuFilterPriority_Click"/>
+                    <MenuItem Header="Средний" Name="MenuFilterPriorityMedium" Click="MenuFilterPriority_Click"/>
+                    <MenuItem Header="Высокий" Name="MenuFilterPriorityHigh" Click="MenuFilterPriority_Click"/>
+                    <MenuItem Header="Критический" Name="MenuFilterPriorityCritical" Click="MenuFilterPriority_Click"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Сбросить фильтры" Name="MenuResetFilters" Click="MenuResetFilters_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <ToolBar Grid.Row="1">
+            <TextBlock Margin="5,0" VerticalAlignment="Center">Поиск:</TextBlock>
+            <TextBox Name="SearchTextBox" Width="300" Margin="5" 
+                     ToolTip="Поиск по названию"/>
+            <Button Content="Найти" Name="SearchButton" Click="SearchButton_Click" Width="78" HorizontalAlignment="Center" />
+            <Separator/>
+            <Button Content="Сбросить" Name="ResetButton" Click="MenuReset_Click" Width="78" HorizontalAlignment="Center" />
+            <Separator/>
+            <TextBlock Name="SearchStatusText" Margin="1" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </ToolBar>
+
+        <ListView Grid.Row="2" Name="TasksListView" Margin="5">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить задачу"  Click="MenuAddTask_Click"/>
+                    <MenuItem Header="Редактировать задачу" Click="MenuEditTask_Click"/>
+                    <MenuItem Header="Удалить задачу"  Click="MenuDeleteTask_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Название" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Статус" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Status}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Приоритет" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Priority}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Срок выполнения" Width="210">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DueDate, StringFormat=dd.MM.yyyy}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="210"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Дата создания" Width="204">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding CreatedAt, StringFormat=dd.MM.yyyy}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StatusBar Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock Name="StatusText">Загружено задач: 0</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
